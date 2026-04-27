@@ -1,22 +1,27 @@
+"use client";
+
+import { useLocale } from "@/components/locale-provider";
+
 const CONTACT_EMAIL = "jeanpatricksmoraes@gmail.com";
 
 export function ContactSection() {
+  const { t } = useLocale();
+
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
           <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            Contact
+            {t.contact.eyebrow}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Let's talk
+            {t.contact.heading}
           </h2>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-8">
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            If you’d like to chat or discuss a project, feel free to send me an
-            email anytime.
+            {t.contact.blurb}
           </p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}

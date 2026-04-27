@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { LocaleProvider } from "@/components/locale-provider";
 import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -22,10 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <LocaleProvider>
+          {children}
+          {process.env.NODE_ENV === "production" && <Analytics />}
+        </LocaleProvider>
       </body>
     </html>
   );
